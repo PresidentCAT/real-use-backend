@@ -14,6 +14,7 @@ const vrftoken = (req, res, next) => {
     if (!token) return res.status(401).json({ message: 'no token' })
     try {
         req.user = jwt.verify(token, process.env.JWT_SECRET)
+        console.log(req.user)
         next()
     } catch (e) {
         return res.status(401).json({ message: "invalid or expired token" })

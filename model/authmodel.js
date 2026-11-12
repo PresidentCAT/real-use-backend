@@ -4,7 +4,7 @@ const register = async (username, password, fullname, email) => {
     let conn = await pool.getConnection()
     try{
         const[row] = await conn.query(
-            `INSERT INTO users (username, password, fullname, email, role)  VALUES (?, ?, ?, ?, 'noob')`,
+            `INSERT INTO users (username, password, fullname, email, role)  VALUES (?, ?, ?, ?, 'user')`,
             [username, password, fullname, email]
         )
         return row
